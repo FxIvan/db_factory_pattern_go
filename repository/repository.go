@@ -21,7 +21,7 @@ func New(config *configuration.Configuration) (Repository, error) {
 	case "mysql":
 		return mysql.New(config)
 	case "mongodb":
-		repo = mongodb.New()
+		return mongodb.New(config)
 	default:
 		err = fmt.Errorf("invalid engine %s", config.Engine)
 	}

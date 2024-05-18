@@ -6,13 +6,21 @@ import (
 )
 
 func main() {
-
-	config := configuration.Configuration{
+	/*	MySQL
 		Engine:   "mysql",
 		Host:     "localhost",
 		Port:     33060,
 		User:     "root",
 		Password: "secret",
+		DBName:   "product",
+	*/
+
+	config := configuration.Configuration{
+		Engine:   "mongodb",
+		Host:     "localhost",
+		Port:     27017,
+		User:     "almendra",
+		Password: "1ASWWWaeq",
 		DBName:   "product",
 	}
 
