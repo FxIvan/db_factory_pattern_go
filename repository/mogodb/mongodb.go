@@ -49,6 +49,10 @@ func (m *MongoDB) Find(id int) string {
 	return "function Data | from MongoDB"
 }
 
+func (r *MongoDB) FindKey(key string) string {
+	return ""
+}
+
 func (m *MongoDB) Save(data string) error {
 	_, err := m.Collection.InsertOne(context.Background(), bson.M{"data": data})
 	if err != nil {

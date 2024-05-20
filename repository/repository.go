@@ -6,11 +6,13 @@ import (
 	"github.com/fxivan/db_go_abstract_factory/configuration"
 	mongodb "github.com/fxivan/db_go_abstract_factory/repository/mogodb"
 	"github.com/fxivan/db_go_abstract_factory/repository/mysql"
+	"github.com/fxivan/db_go_abstract_factory/repository/redis"
 )
 
 type Repository interface {
 	Find(id int) string
 	Save(data string) error
+	FindKey(key string) string
 }
 
 func New(config *configuration.Configuration) (Repository, error) {
@@ -22,6 +24,8 @@ func New(config *configuration.Configuration) (Repository, error) {
 		return mysql.New(config)
 	case "mongodb":
 		return mongodb.New(config)
+	case "redis":
+		return redis.New(config)
 	default:
 		err = fmt.Errorf("invalid engine %s", config.Engine)
 	}

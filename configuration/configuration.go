@@ -8,5 +8,3 @@ type Configuration struct {
 	Password string
 	DBName   string
 }
-
-

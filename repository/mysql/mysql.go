@@ -31,6 +31,10 @@ func (m *MySQL) Find(id int) string {
 	return "function Data | from mysql"
 }
 
+func (r *MySQL) FindKey(key string) string {
+	return ""
+}
+
 func (m *MySQL) Save(data string) error {
 	query := "INSERT INTO my_table (data) VALUES (?)"
 	_, err := m.DB.Exec(query, data)
